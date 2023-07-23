@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../../img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Samuel Sastry">
+    <title>n-ball</title>
+    <!-- CSS -->
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/navbarstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/subpage.css" rel="stylesheet" type="text/css" />
+    <!-- JS -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async src="../../js/mjaxconfig.js"></script>
+    <!--TikZ-->
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="activenav" href="../../">Home</a>
+        <a href="">Projects</a>
+        <a href="#e">Games</a>
+        <a href="#e">Other</a>
+        <div class="right">
+            <a onclick="history.back()">←</a>
+            <a href="https://discord.com/users/701829178592591952D"><img height="25.5px" style="vertical-align: middle"
+                    src="../../img/discord.svg"></a>
+            <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
+                <img height="25.5px" style="vertical-align: middle" src="../../img/gmail.svg">
+            </a>
+            <a href="https://github.com/Camelpilot33" target="_blank" rel="noopener noreferrer">
+                <img height="25.5px" style="vertical-align: middle" src="../../img/github-mark-white.png"></img>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Volume of an n-ball</h1>
+        <div class="page-text">
+            <h3>Notation</h3>
+            I will define an n-dimensional ball (n-ball) of radius r to be
+            $B_n(r,O)=\big\{x,O\in\mathbb{R}^n:\,||x+O||_{_2}\le r\big\}$,
+            where $||x||_{_2}$ represents the Euclidean norm of vector x.
+            The volume of the n-ball, $V_n(r)$ will be the measure of the set $B_n(r)$.
+            I will refer to a ball as a "solid" n-dimensional object in n-dimensional space, and a sphere as an
+            n-dimensional "shell" embedded in n+1 dimensional space.
+
+
+            <br><br>
+            <h3>Volume of a n-ball - Slow recursive formula</h3>
+            The volume of a 1-ball is $V_1=\big|\big\{x\in\mathbb{R}:\,{-r}\le x\le r\}\big|=2r$. We know the volume of
+            a 2-ball is $V_2=\pi r^2$, which we can get from various methods.
+            One of these is by integrating a line: $V_2=\int_{-r}^r y\,\text{d}x$, where $y=2\sqrt{r^2-x^2}$.
+            Then we can perform the substitution $(x,y)\mapsto (r\cos\theta,r\sin\theta)$, obtaining
+            $$\begin{eqnarray*}
+            V_2&=&\int_{-\pi/2}^{\pi/2}2r^2\sin^2\theta \,\text{d}\theta\\
+            &=&\int_0^{\pi/2}2\cdot(2r \sin\theta)\cdot r\sin\theta\, \text{d}\theta\\
+            &=&\int_0^{\pi/2}2\cdot V_1(r\sin\theta)\cdot r\sin\theta\, \text{d}\theta\\
+            \end{eqnarray*}$$
+            We can use this line of reasoning to create a general formula, in which an n-ball is an integral of
+            (n-1)-balls of varying radii:
+
+            $$\begin{equation}\boxed{V_n=\int_0^{\pi/2}2\cdot V_{n-1}(r\sin\theta)\cdot
+            r\sin\theta\,\text{d}\theta}\label{eq:0}\end{equation}$$
+
+            Expanding it for $n=3$ gives:
+            $$V_3=\left(2r\right)^{3}\int_{0}^{\frac{\pi}{2}}\int_{0}^{\frac{\pi}{2}}\int_{0}^{\frac{\pi}{2}}\sin^{3}\left(\theta_{3}\right)\sin^{2}\left(\theta_{2}\right)\sin^1\left(\theta_{1}\right)\
+            \text{d}\theta_{1}\text{d}\theta_{2}\text{d}\theta_{3}$$
+            If you evaluate the integral (hopefully with the help from a CAS), it simplifies to $\dfrac{4\pi r^3}3$.
+            <br><br>
+            <h3>Optimizing</h3>
+            In \eqref{eq:0} we saw that you can generate a formula for $V_n$, but it is very slow with large n.
+            Instead consider the relation between an n-ball and
+            an (n-2)-ball. You can get this by intersecting a (n-2)-plane ($P_{n-2}$) with an n-ball ($B_n$).
+
+            <div class="tikz center"><script type="text/tikz">
+            \begin{tikzpicture}[white]
+                \draw [-latex](2,0) arc (0:70:2cm and 2cm);
+                \draw [](2,0) arc (0:-287:2cm and 2cm);
+                \node at (-2,1.4) {$B_3$};
+                \node at (0.5,0.2) {$R$};
+                \draw [fill=white,fill opacity=0.1] (0,-1) arc (-90:90:2cm and 1cm) --cycle;
+                \draw [dashed] (0,1) arc (90:270:2cm and 1cm);
+                \draw [thick] (0,0) -- (1,0);
+                \draw [dashed] (1,0) -- (2,0);
+                \draw [thick,green] (1,0) -- (1,-1/2*sqrt(3);
+                \draw [dashed,green] (1,0) -- (1,1/2*sqrt(3);
+                \node at (1.2,-0.4) {$a$};
+                \node at (2.2,0) {$r$};
+                \node at (1.7,1.5) {$\theta$};
+            \end{tikzpicture}
+            </script></div>$$\text{Figure 1: Integration method for } B_3$$
+
+            In Figure 1, you can see the intersection of a 3-ball and a 1-plane (line) gives the green segment, which is a 1-ball with radius $a=\sqrt{r^2-R^2}$.
+            The generalization of this is that the intersection of $B_n$ and $P_{n-2}$ is $B_{n-2}$ of radius $\sqrt{r^2-R^2}$, where $r$ is the radius of $B_n$, 
+            and $R$ is the shortest distance from the line to the center of the sphere. 
+            By integrating $R$ from $0$ to $r$, then integrating this section about an angle $\theta$, we can derive a formula for $V_n$ using $V_{n-2}$.
+            $$\begin{eqnarray*}
+                V_n(r)&=&\int_0^{2\pi} \int_0^r V_{n-2}(\sqrt{r^2-R^2})\,\,(\mathrm{d}R\cdot R \mathrm{d}\theta)\\
+                &=&2\pi\int_0^r V_{n-2}(\sqrt{r^2-R^2})\cdot R\,\,\mathrm{d}R
+            \end{eqnarray*}$$
+            We can then reason that the integral is proportional to $V_{n-2}(r)$, leaving a section or unit radius, and the integral is equal to $V_{n-2}(r)\cdot\int_0^r R\sqrt{1-\frac{R^2}{r^2}}^{\,n-2}\,\,\mathrm{d}R$
+            
+            $$\begin{align*} V_n(r)=V_{n-2}(r)\cdot2\pi\cdot\int_0^r R\sqrt{1-\frac{R^2}{r^2}}^{\,n-2}\mathrm{d}R    \end{align*}$$  
+            $$u=1-\frac{R^2}{r^2}\rightarrow \mathrm{d}u=-\frac{2R}{r^2}\,\,\mathrm{d}R$$
+            $$\begin{align*}
+                V_n(r)&=V_{n-2}(r)\cdot2\pi\cdot{-\frac{r^2}{2}}\int_{R=0\rightarrow\,u=1}^{R=r\rightarrow\,u=0}u^{\frac{n-2}2}\,\,\mathrm{d}u\\
+                &=V_{n-2}(r)\cdot2\pi\cdot\left[-\frac{r^2u^{\frac{n-2}2+1}}{2(\frac{n-2}2+1)}\right]_{u=1}^{u=0}
+            \end{align*}$$
+            $$\begin{equation}\boxed{V_n=\frac{2\pi r^2}nV_{n-2}}\label{eq:1}\end{equation}$$
+            This relation is much more useful than \eqref{eq:0} as you don't have to evaluate a large integral every step.
+            We can further simplify this:
+            $$\begin{align*}
+                V_0&=1\\
+                V_1&=2r\\
+                V_{2n}&=1\cdot\frac{2\pi r^2}2\cdot\frac{2\pi r^2}4\cdot{_\ldots}\cdot\frac{2\pi r^2}{2n}\\
+                    &=\frac{2^n\pi^nr^{2n}}{(2n)!!}=\frac{2^n\pi^nr^{2n}}{2^n\cdot n!}\\
+                    &=\frac{\pi^n}{n!}r^{2n}\\
+                V_{2n+1}&=2r\cdot\frac{2\pi r^2}3\cdot\frac{2\pi r^2}5\cdot{_\ldots}\cdot\frac{2\pi r^2}{2n+1}\\
+                    &=\frac{2^{n+1}\pi^nr^{2n+1}}{(2n+1)!!}=\frac{2^{n+1}\pi^nr^{2n+1}}{\frac{(2n+1)!}{2n!!}}\\
+                    &=\frac{2^nn!\cdot2^{n+1}\pi^nr^{2n+1}}{(2n+1)!}\\
+                    &=\frac{n!\cdot2(4\pi)^n}{(2n+1)!}r^{2n+1}
+            \end{align*}$$
+            Using these formulas we can write a piecewise function for $V_n$:
+            $$\begin{equation}\boxed{V_n=\begin{cases}
+                \dfrac{\pi^{\,n/2}}{\frac{n}2!}r^n& n \text{ even}\\\\
+                \dfrac{\frac{n-1}2!\cdot2^n\pi^\frac{n-1}2}{n!}r^{n}& n \text{ odd}
+            \end{cases}}\label{eq:2}\end{equation}$$
+            <br><br>
+            <h3>Combining</h3>
+            In \eqref{eq:2}, we were able to derive a 2-part piecewise function for the volume of an n-ball, which takes into
+            account whether the dimension $n$ is even or odd. Interestingly, the two
+            parts of the piecewise equation, $V_{\text{even}}$ and $V_{\text{odd}}$, can be shown to be
+            equivalent when we extend $x!$ as $f(x)=\Gamma(x+1)=\int_0^\infty e^{-t}t^x\mathrm{d}t$. 
+            We can prove that $f(x)=x!$ on $\mathbb{N}_{0}$ with induction:
+            <br>
+            <h4 style="display: inline;">Base Case: </h4>$f(0)=0!$
+            $$\begin{align*}
+                f(0)&=\int_0^\infty e^{-t}t^0\mathrm{d}t\\
+                    &=\int_0^\infty e^{-t}\mathrm{d}t\\
+                    &=0-(-1)\\
+                    &=0!
+            \end{align*}$$
+            <h4 style="display: inline;">Inductive Step: </h4>Assume $f(x-1)=(x-1)!$, now show $f(x)=x!$. Integration by parts gives:<br>
+            $$\begin{align*}
+                f(x)&=\int _{0}^{\infty}t^{x}e^{-t}\,\mathrm{d}t\\
+                &={\Bigl [}-t^{x}e^{-t}{\Bigr]}_{0}^{\infty }+\int _{0}^{\infty }xt^{x-1}e^{-t}\,\mathrm{d}t\\
+                &=0+x\int _{0}^{\infty }t^{x-1}e^{-t}\,\mathrm{d}t\\
+                &=x\cdot f(x-1)\\
+                &=x\cdot (x-1)!\\
+                &=x!
+            \end{align*}$$
+            We then need the fact that $f(\frac12)=\frac{\sqrt{\pi}}2$:
+            $$\begin{align*}
+                f(\frac12)&=\int_0^\infty e^{-t} \sqrt t\,\,\mathrm{d}t\\
+                    &=\left[ -\sqrt{t} e^{-t}-\int\frac{-e^{-t}}{2\sqrt{t}} \right]_0^\infty\\
+                    &=\left[ -\sqrt{ t} e^{-t}+\frac{\sqrt{\pi}}2 \mathrm{erf}\left(\sqrt t\right)\right]_0^\infty\\
+                    &=0+\frac{\sqrt{\pi}}2-0-0\\
+                    &=\frac{\sqrt{\pi}}2
+            \end{align*}$$
+            Then induction can be applied again to show that $\dfrac{\frac{n-1}2!\cdot2^n\pi^\frac{n-1}2}{n!}r^{n}=\dfrac{\pi^{\,n/2}}{f\left(\frac{n}2\right)}r^n$:
+            <br><h4 style="display: inline;">Base Case: </h4>$n=1;\,\,\dfrac{1\cdot2\cdot1}{1}r=\dfrac{2\sqrt\pi}{\sqrt\pi}$
+            <br><h4 style="display: inline;">Inductive Step: </h4>Assume that it is true for n, show for n+2:
+            $$\begin{align*}
+                V_{\text{odd}}(n+2)=\dfrac{(\frac{n-1}2+1)!\cdot2^{n+2}\pi^{\frac{n-1}2+1}}{(n+2)!}r^{n+2}&=\dfrac{4\pi \left(\frac{n-1}{2}+1\right)r^2}{(n+1)(n+2)}\cdot\dfrac{ \frac{n-1}2!\cdot2^{n}\pi^{\frac{n-1}2}}{n!}r^{n}\\
+                    &=\dfrac{4\pi \left(\frac{n-1}{2}+1\right)r^2}{(n+1)(n+2)}\cdot\dfrac{\pi^{\,n/2}}{f\left(\frac{n}2\right)}r^n\\
+                    &=\dfrac{4 \left(\frac{n-1}{2}+1\right)}{(n+1)(n+2)}\cdot\dfrac{\pi^{\,(n+2)/2}}{f\left(\frac{n}2\right)}r^{n+2}\\
+                    &=\dfrac{2 \left(n+1\right)}{(n+1)(n+2)}\cdot\dfrac{\pi^{\,(n+2)/2}}{f\left(\frac{n}2\right)}r^{n+2}\\
+                    &=\frac{\pi^{\left(\frac{n+2}{2}\right)}}{f\left(\frac{n}{2}\right)\left(\frac{n}{2}+1\right)}r^{n+2}\\
+                    &=\frac{\pi^{\left(\frac{x+2}{2}\right)}}{f\left(\frac{x+2}{2}\right)}\\
+                    &=V_{\text{even}}(n+2)
+            \end{align*}$$
+            From this we get the final equation:
+            $$\begin{equation}\boxed{V_n(r)=\dfrac{\pi^{\,n/2}}{f\left(\frac{n}2\right)}r^n=\dfrac{\pi^{\,n/2}}{\Gamma\left(\frac{n}2+1\right)}}\label{eq:3}\end{equation}$$
+            <!--Instead of repeated integration, try to consider the relation between the volume and surface-area.
+            Let $S_n$ be the volume of an n-dimensional sphere, equal to the n-dimensional measure of $\big\{x\in\mathbb{R}^{n+1}:\,||x||_{_2}= r\big\}$. 
+            It follows that $S_n$ is the surface-area of $B_{n+1}$, so:
+            $$\begin{eqnarray}
+            S_n(r)&=&\frac{\text{d}V_{n+1}(r)}{\text{d}r}\\
+            S_n(1)\cdot r^n&=&\frac{\text{d}(V_{n+1}(1)\cdot r^{n+1})}{\text{d}r}\\
+                           &=&(n+1)\cdot V_{n+1}(1)\cdot r^n\\
+            V_{n}&=&\frac{r\cdot S_{n-1}}{n}
+            \end{eqnarray}$$
+            Now vizualize a 0-sphere (2 dots, $S_0=2$) in 1-space multiplied by a 1-sphere (circle, $S_1=2\pi r$) in 2-space. The result is two parallel rings in 3-space. 
+            We can integrate this along the surface of a 2-sphere (sphere, $S_2=4\pi r^2$), by varying the angle $\theta$ between the center of the 2-sphere and the two rings from $0$ to $\frac\pi 2$.
+            This integral is $\int_0^{\frac\pi 2}2\pi\sin(\theta)\cdot 2\,\mathrm{d}\theta$-->
+        </div>
+    </div>
+    <br><br>
+</body>
+
+</html>

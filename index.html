@@ -3,19 +3,81 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald" />
-    <meta name="author" content="SitePoint" />
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0" />
+    <link rel="icon" href="img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Samuel Sastry">
+    <title>Camelpilot33</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async src="js/mjaxconfig.js"></script>
+    <link href="css/navbarstyle.css" rel="stylesheet" type="text/css" />
 </head>
 
-<h1>Hello World</h1>
-
 <body>
-    <script src="js/scripts.js"></script>
+    <div class="topnav">
+        <a class="activenav" href="">Home</a>
+        <a href="#e">Projects</a>
+        <a href="#e">Games</a>
+        <a href="#e">Other</a>
+
+        <div class="right">
+            <a onclick="history.back()">←</a>
+            <a href="https://discord.com/users/701829178592591952D"><img height="25.5px" style="vertical-align: middle" src="img/discord.svg"></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
+                <img height="25.5px" style="vertical-align: middle" src="img/gmail.svg">
+            </a>
+            <a href="https://github.com/Camelpilot33" target="_blank" rel="noopener noreferrer">
+                <img height="25.5px" style="vertical-align: middle" src="img/github-mark-white.png"></img>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Featured</h1>
+        <div class="wrapper" id="grid">
+
+            <div onclick="window.location.href='pages/AOC'">
+                <h3>Advent of Code</h3>
+                <p>
+                    Advent of code solutions<hr>
+                    <img class="center" src="img/AOC.png"></img>
+                </p>
+            </div>
+
+            <div onclick="window.location.href='pages/IK'">
+                <h3>Inverse Kinematics</h3>
+                <p>
+                    My implementation of Forward And Backward Reaching Inverse Kinematics (FABRIK).
+                </p>
+            </div>
+
+            <div
+                onclick="window.location.href='https:/\/github.com/Camelpilot33/Camul-Home-Page/blob/main/toy/codewars/description.md'">
+                <h3>Codewars</h3>
+                <p>
+                    My Codewars solutions<hr>
+                    <img class="center" src="img/CW.png">
+                </p>
+            </div>
+            <div onclick="window.location.href='pages/Atomic'">
+                <h3>Atomic Chess</h3>
+                <p>
+                    Tools for the Atomic Chess variant<hr>
+                    <img class="center" src="img/atomic.png"></img>
+                </p>
+            </div>
+            <div onclick="window.location.href='pages/Sphere'">
+                <h3>n-ball</h3>
+                <p>
+                    Derivation of the volume of an n-dimensional ball<hr>$$\LaTeX$$
+                </p>
+            </div>
+            <div>3d</div>
+            <div>More To be added</div>
+        </div>
+    </div>
+
 </body>
 
 </html>

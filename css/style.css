@@ -1,10 +1,3 @@
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 /* Remove default margin */
 body,
 h1,
@@ -57,18 +50,137 @@ select {
     font: inherit;
 }
 
-/* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-    html:focus-within {
-        scroll-behavior: auto;
-    }
+/*Camul colors
+:root {
+    --a: #000000;
+    --a1: #282A3A;
+    --b: #282A3A;
+    --c: #82641f;
+    --d: #d9ae69;
+    --lnk: #ffdea9;
+    --transtime: 250ms;
+}*/
+:root {/*https: //colorhunt.co/palettes/popular*/
+    --a: #331D2C;
+    --a1: #35242f;
+    --b: #3F2E3E;
+    --c: #A78295;
+    --d: #EFE1D1;
+    --lnk: #ffb163;
+    --transtime: 250ms;
+}
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+@font-face {
+    font-family: CM;
+    src: url('Cambria\ Math.ttf');
+}
+@font-face {
+    font-family: SC;
+    src: url('SourceCodePro-Light.ttf');
+}
+
+body {
+    background-color: var(--a);
+    color: var(--d);
+    font-family: SC;
+    /* letter-spacing: 1px; */
+}
+
+.content {
+    /* border: 1px solid red; */
+    margin-top: 30px;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.content h1 {
+    margin: 10px 60% 10px 10px;
+    text-align: center;
+    overflow:visible;
+    white-space: nowrap;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    overflow-wrap: break-word;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.wrapper div {
+    background-color: var(--a1);
+    transition-duration: 250ms;
+    transition-property: background-color color;
+    border-radius: 5px;
+    /* border: 1px solid #0f0; */
+    text-align: center;
+    box-shadow: 10px 10px var(--c);
+    cursor: pointer;
+}
+
+.wrapper div:hover {
+    box-shadow: 3px 3px var(--c);
+}
+
+.wrapper div h3 {
+    font-weight: 900;
+    padding: 10px;
+    background-color: var(--d);
+    color: var(--a);
+    border-radius: 5px 5px 0px 0px;
+}
+
+.wrapper div p {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.center {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+}
+
+.wrapper div img {
+    border-radius: 50%;
+    height: 70px;
+    border: 3px solid #0000;
+}
+
+code {
+    background-color: var(--b);
+    filter: invert(0.2);
+    border-radius: 3px;
+    font-family: consolas, monospace;
+    font-weight: 100;
+    padding: 0 3px;
+}
+
+.wrapper div hr {
+    height: 0px;
+    margin: 0;
+    visibility: hidden;
+}
+
+e {
+    height:100%
+}
+
+/*TeX*/
+mjx-container[jax="SVG"] svg a {
+    fill: var(--lnk) !important;
+    stroke: var(--lnk) !important;
+}
+text {
+    fill: var(--lnk) !important;
+}
+.tikz {
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
 }

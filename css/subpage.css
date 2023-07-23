@@ -1,0 +1,61 @@
+.page-text {
+    background-color: var(--b);
+    font-size: large;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.page-text a {
+    color: var(--lnk);
+    text-decoration: none;
+}
+
+button {
+    background-color: var(--d);
+    font-weight: bold
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    overflow-wrap: break-word;
+    column-gap: 20px;
+}
+
+canvas {
+    border: 3px solid var(--c);
+    background-color: var(--a);
+}
+
+.slider {
+    vertical-align: middle;
+    appearance: none;
+    width:100px;
+    height: 20px;
+    border-radius: 10px;
+    background: var(--a);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--d);
+    cursor: pointer;
+}
+label.small {
+    font-size:medium;
+    font-weight:bolder;
+}
+h3,h4 {
+    color: var(--lnk)
+}

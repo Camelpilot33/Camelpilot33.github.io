@@ -1,0 +1,38 @@
+.topnav {
+    overflow: hidden;
+    background-color: var(--b);
+    font-weight:bolder;
+}
+
+.topnav a {
+    cursor:pointer;
+    float: left;
+    color:inherit;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    transition-duration: var(--transtime);
+    transition-property: background-color color;
+}
+
+.topnav div.right{
+    float:right;
+    color: var(--e);
+}
+
+.topnav div.right a:hover img {
+    filter: invert(1);
+    transition-duration: var(--transtime);
+    transition-property: background-color color;
+}
+
+.topnav a:hover {
+    background-color: var(--d);
+    color: var(--a);
+}
+
+.topnav a.activenav {
+    background-color: var(--d);
+    color: var(--a);
+}
