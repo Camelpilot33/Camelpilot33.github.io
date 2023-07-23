@@ -53,7 +53,7 @@
 
 
             <br><br>
-            <h3>Volume of a n-ball - Slow recursive formula</h3>
+            <h3>Volume of a n-ball - Slow repeated integral formula</h3>
             The volume of a 1-ball is $V_1=\big|\big\{x\in\mathbb{R}:\,{-r}\le x\le r\}\big|=2r$. We know the volume of
             a 2-ball is $V_2=\pi r^2$, which we can get from various methods.
             One of these is by integrating a line: $V_2=\int_{-r}^r y\,\text{d}x$, where $y=2\sqrt{r^2-x^2}$.
@@ -178,18 +178,14 @@
             \end{align*}$$
             From this we get the final equation:
             $$\begin{equation}\boxed{V_n(r)=\dfrac{\pi^{\,n/2}}{f\left(\frac{n}2\right)}r^n=\dfrac{\pi^{\,n/2}}{\Gamma\left(\frac{n}2+1\right)}}\label{eq:3}\end{equation}$$
-            <!--Instead of repeated integration, try to consider the relation between the volume and surface-area.
-            Let $S_n$ be the volume of an n-dimensional sphere, equal to the n-dimensional measure of $\big\{x\in\mathbb{R}^{n+1}:\,||x||_{_2}= r\big\}$. 
-            It follows that $S_n$ is the surface-area of $B_{n+1}$, so:
-            $$\begin{eqnarray}
-            S_n(r)&=&\frac{\text{d}V_{n+1}(r)}{\text{d}r}\\
-            S_n(1)\cdot r^n&=&\frac{\text{d}(V_{n+1}(1)\cdot r^{n+1})}{\text{d}r}\\
-                           &=&(n+1)\cdot V_{n+1}(1)\cdot r^n\\
-            V_{n}&=&\frac{r\cdot S_{n-1}}{n}
-            \end{eqnarray}$$
-            Now vizualize a 0-sphere (2 dots, $S_0=2$) in 1-space multiplied by a 1-sphere (circle, $S_1=2\pi r$) in 2-space. The result is two parallel rings in 3-space. 
-            We can integrate this along the surface of a 2-sphere (sphere, $S_2=4\pi r^2$), by varying the angle $\theta$ between the center of the 2-sphere and the two rings from $0$ to $\frac\pi 2$.
-            This integral is $\int_0^{\frac\pi 2}2\pi\sin(\theta)\cdot 2\,\mathrm{d}\theta$-->
+            <br><br>
+            <h3>Conclusion</h3> 
+            This calculation struck me as beautiful because it combined many different mathematical concepts to arrive at a concise
+            and powerful formula. The recursive approach \eqref{eq:1} leveraged the intersection of n-balls with (n-2)-planes,
+            providing a faster solution compared to the slow repetition formula \eqref{eq:0}. Furthermore, the optimization using
+            the Gamma function in \eqref{eq:3} merged the even and odd cases of the piecewise function into a simple form.
+            While this seems like it has no real world applications, I have found that it can be used a lot in statistics and probability
+            related problems to distances and classification of high-dimensional data.
         </div>
     </div>
     <br><br>
