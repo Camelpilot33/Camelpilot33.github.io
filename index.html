@@ -70,12 +70,13 @@
             <div onclick="window.location.href='pages/Sphere'">
                 <h3>n-ball</h3>
                 <p>
-                    Derivation of the volume of an n-dimensional ball<hr>$$\LaTeX$$
+                    Derivation of the volume of an n-dimensional ball
                 </p>
             </div>
             <div>3d</div>
             <div>More To be added</div>
         </div>
+        <script>f=()=>{ x = Math.ceil(0.00000147 * window.innerWidth ** (2.119) + 0.641235); document.getElementById("grid").style.gridTemplateColumns = `repeat(${x > 5 ? 5 : x},1fr)`; };f();window.onresize = f</script>
     </div>
 
 </body>
