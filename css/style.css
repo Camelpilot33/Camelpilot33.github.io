@@ -80,15 +80,19 @@ select {
 }
 
 body {
-    position: fixed;
     width:100%;
     background-color: var(--a);
     color: var(--d);
     font-family: SC;
     /* letter-spacing: 1px; */
 }
-
+.content::-webkit-scrollbar {/*hides scrollbar in chromium*/
+    display: none;
+}
 .content {
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     /* border: 1px solid red; */
     margin-top: 30px;
     margin-left: 7%;
