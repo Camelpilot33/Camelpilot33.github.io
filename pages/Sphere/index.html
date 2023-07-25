@@ -44,18 +44,18 @@
         <h1>Volume of an n-ball</h1>
         <div class="page-text">
             <h3>Notation</h3>
-            I will define an n-dimensional ball (n-ball) of radius r to be
+            I will define an <a href="https://en.wikipedia.org/wiki/Ball_(mathematics)" target="_blank">$n$-dimensional ball (n-ball)</a> of radius $r$ to be
             $B_n(r,O)=\big\{x,O\in\mathbb{R}^n:\,||x+O||_{_2}\le r\big\}$,
-            where $||x||_{_2}$ represents the Euclidean norm of vector x.
-            The volume of the n-ball, $V_n(r)$ will be the measure of the set $B_n(r)$.
-            I will refer to a ball as a "solid" n-dimensional object in n-dimensional space, and a sphere as an
-            n-dimensional "shell" embedded in n+1 dimensional space.
+            where $||x||_{_2}$ represents the Euclidean norm of vector $x$.
+            The volume of the n-ball, $V_n(r)$, will be the measure of the set $B_n(r)$.
+            I will refer to a ball as a "solid" $n$-dimensional object in $n$-dimensional space, and a <a href="https://en.wikipedia.org/wiki/N-sphere" target="_blank">sphere as an
+            $n$-dimensional "shell"</a> embedded in $n+1$ dimensional space.
 
 
             <br><br>
             <h3>Volume of a n-ball - Slow repeated integral formula</h3>
-            The volume of a 1-ball is $V_1=\big|\big\{x\in\mathbb{R}:\,{-r}\le x\le r\}\big|=2r$. We know the volume of
-            a 2-ball is $V_2=\pi r^2$, which we can get from various methods.
+            The volume of a $1$-ball is $V_1=\big|\big\{x\in\mathbb{R}:\,{-r}\le x\le r\}\big|=2r$. 
+            We know the volume of a $2$-ball is $V_2=\pi r^2$, which is obtainable from various methods.
             One of these is by integrating a line: $V_2=\int_{-r}^r y\,\text{d}x$, where $y=2\sqrt{r^2-x^2}$.
             Then we can perform the substitution $(x,y)\mapsto (r\cos\theta,r\sin\theta)$, obtaining
             $$\begin{eqnarray*}
@@ -63,8 +63,8 @@
             &=&\int_0^{\pi/2}2\cdot(2r \sin\theta)\cdot r\sin\theta\, \text{d}\theta\\
             &=&\int_0^{\pi/2}2\cdot V_1(r\sin\theta)\cdot r\sin\theta\, \text{d}\theta\\
             \end{eqnarray*}$$
-            We can use this line of reasoning to create a general formula, in which an n-ball is an integral of
-            (n-1)-balls of varying radii:
+            We can use this line of reasoning to create a general formula, in which an $n$-ball is an integral of
+            $(n-1)$-balls of varying radii:
 
             $$\begin{equation}\boxed{V_n=\int_0^{\pi/2}2\cdot V_{n-1}(r\sin\theta)\cdot
             r\sin\theta\,\text{d}\theta}\label{eq:0}\end{equation}$$
@@ -75,9 +75,9 @@
             If you evaluate the integral (hopefully with the help from a CAS), it simplifies to $\dfrac{4\pi r^3}3$.
             <br><br>
             <h3>Optimizing</h3>
-            In \eqref{eq:0} we saw that you can generate a formula for $V_n$, but it is very slow with large n.
+            In \eqref{eq:0} we saw that you can generate a formula for $V_n$, but it is very slow with large $n$.
             Instead consider the relation between an n-ball and
-            an (n-2)-ball. You can get this by intersecting a (n-2)-plane ($P_{n-2}$) with an n-ball ($B_n$).
+            an $(n-2)$-ball. You can get this by intersecting a $(n-2)$-plane ($P_{n-2}$) with an $n$-ball ($B_n$).
 
             <div class="tikz center"><script type="text/tikz">
             \begin{tikzpicture}[white]
@@ -97,7 +97,7 @@
             \end{tikzpicture}
             </script></div>$$\text{Figure 1: Integration method for } B_3$$
 
-            In Figure 1, you can see the intersection of a 3-ball and a 1-plane (line) gives the green segment, which is a 1-ball with radius $a=\sqrt{r^2-R^2}$.
+            In Figure 1, you can see the intersection of a $3$-ball and a $1$-plane (line) gives the green segment, which is a $1$-ball with radius $a=\sqrt{r^2-R^2}$.
             The generalization of this is that the intersection of $B_n$ and $P_{n-2}$ is $B_{n-2}$ of radius $\sqrt{r^2-R^2}$, where $r$ is the radius of $B_n$, 
             and $R$ is the shortest distance from the line to the center of the sphere. 
             By integrating $R$ from $0$ to $r$, then integrating this section about an angle $\theta$, we can derive a formula for $V_n$ using $V_{n-2}$.
@@ -105,7 +105,7 @@
                 V_n(r)&=&\int_0^{2\pi} \int_0^r V_{n-2}(\sqrt{r^2-R^2})\,\,(\mathrm{d}R\cdot R \mathrm{d}\theta)\\
                 &=&2\pi\int_0^r V_{n-2}(\sqrt{r^2-R^2})\cdot R\,\,\mathrm{d}R
             \end{eqnarray*}$$
-            We can then reason that the integral is proportional to $V_{n-2}(r)$, leaving a section or unit radius, and the integral is equal to $V_{n-2}(r)\cdot\int_0^r R\sqrt{1-\frac{R^2}{r^2}}^{\,n-2}\,\,\mathrm{d}R$
+            Then reasoning that the integral is proportional to $V_{n-2}(r)$, leaving a section of unit radius, the integral is equal to $V_{n-2}(r)\cdot\int_0^r R\sqrt{1-\frac{R^2}{r^2}}^{\,n-2}\,\,\mathrm{d}R$
             
             $$\begin{align*} V_n(r)=V_{n-2}(r)\cdot2\pi\cdot\int_0^r R\sqrt{1-\frac{R^2}{r^2}}^{\,n-2}\mathrm{d}R    \end{align*}$$  
             $$u=1-\frac{R^2}{r^2}\rightarrow \mathrm{d}u=-\frac{2R}{r^2}\,\,\mathrm{d}R$$
@@ -134,7 +134,7 @@
             \end{cases}}\label{eq:2}\end{equation}$$
             <br><br>
             <h3>Combining</h3>
-            In \eqref{eq:2}, we were able to derive a 2-part piecewise function for the volume of an n-ball, which takes into
+            In \eqref{eq:2}, we were able to derive a 2-part piecewise function for the volume of an $n$-ball, which takes into
             account whether the dimension $n$ is even or odd. Interestingly, the two
             parts of the piecewise equation, $V_{\text{even}}$ and $V_{\text{odd}}$, can be shown to be
             equivalent when we extend $x!$ as $f(x)=\Gamma(x+1)=\int_0^\infty e^{-t}t^x\mathrm{d}t$. 
@@ -166,7 +166,7 @@
             \end{align*}$$
             Then induction can be applied again to show that $\dfrac{\frac{n-1}2!\cdot2^n\pi^\frac{n-1}2}{n!}r^{n}=\dfrac{\pi^{\,n/2}}{f\left(\frac{n}2\right)}r^n$:
             <br><h4 style="display: inline;">Base Case: </h4>$n=1;\,\,\dfrac{1\cdot2\cdot1}{1}r=\dfrac{2\sqrt\pi}{\sqrt\pi}$
-            <br><h4 style="display: inline;">Inductive Step: </h4>Assume that it is true for n, show for n+2:
+            <br><h4 style="display: inline;">Inductive Step: </h4>Assume that it is true for $n$, show for $n+2$:
             $$\begin{align*}
                 V_{\text{odd}}(n+2)=\dfrac{(\frac{n-1}2+1)!\cdot2^{n+2}\pi^{\frac{n-1}2+1}}{(n+2)!}r^{n+2}&=\dfrac{4\pi \left(\frac{n-1}{2}+1\right)r^2}{(n+1)(n+2)}\cdot\dfrac{ \frac{n-1}2!\cdot2^{n}\pi^{\frac{n-1}2}}{n!}r^{n}\\
                     &=\dfrac{4\pi \left(\frac{n-1}{2}+1\right)r^2}{(n+1)(n+2)}\cdot\dfrac{\pi^{\,n/2}}{f\left(\frac{n}2\right)}r^n\\
@@ -181,10 +181,10 @@
             <br><br>
             <h3>Conclusion</h3> 
             This calculation struck me as beautiful because it combined many different mathematical concepts to arrive at a concise
-            and powerful formula. The recursive approach \eqref{eq:1} leveraged the intersection of n-balls with (n-2)-planes,
+            and powerful formula. The recursive approach \eqref{eq:1} leveraged the intersection of n-balls with $(n-2)$-planes,
             providing a faster solution compared to the slow repetition formula \eqref{eq:0}. Furthermore, the optimization using
             the Gamma function in \eqref{eq:3} merged the even and odd cases of the piecewise function into a simple form.
-            While this seems like it has no real world applications, I have found that it can be used a lot in statistics and probability
+            While this seems like it has no real world applications, It can be used a lot in statistics and probability
             related problems to distances and classification of high-dimensional data.
         </div>
     </div>
