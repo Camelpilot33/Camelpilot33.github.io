@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../../img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Samuel Sastry">
+    <title>3D renderer</title>
+    <!-- CSS -->
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/navbarstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/subpage.css" rel="stylesheet" type="text/css" />
+    <!-- JS -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async src="../../js/mjaxconfig.js"></script>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="activenav" href="../../">Home</a>
+        <a href="">Projects</a>
+        <a href="#e">Games</a>
+        <a href="#e">Other</a>
+        <div class="right">
+            <a onclick="history.back()">←</a>
+            <a href="https://discord.com/users/701829178592591952D"><img height="25.5px" style="vertical-align: middle"
+                    src="../../img/discord.svg"></a>
+            <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
+                <img height="25.5px" style="vertical-align: middle" src="../../img/gmail.svg">
+            </a>
+            <a href="https://github.com/Camelpilot33" target="_blank" rel="noopener noreferrer">
+                <img height="25.5px" style="vertical-align: middle" src="../../img/github-mark-white.png"></img>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>3D&nbsp;Renderer</h1>
+        <div class="page-text grid">
+            <div>
+                <canvas id="sandbox" width="400" height="400"></canvas>
+                <script src="3d.js"></script>
+            </div>
+            <div>
+                This project is a basic <a target="_blank" href="https://en.wikipedia.org/wiki/Ray_tracing_(graphics)">raytracer</a>, 
+                programmed in pure (vanilla) JS. This raytracer employs a simplified rendering
+                pipeline, casting rays from the camera through each pixel and tracing their intersections with virtual objects like
+                spheres and planes. It catches key lighting, such as <a target="_blank" href="https://en.wikipedia.org/wiki/Diffuse_reflection">diffused</a> and <a target="_blank" href="https://en.wikipedia.org/wiki/Specular_reflection">specular</a> reflection. It can handle point source and
+                directional lighting, along with shadows. The scene to the right is rendered in real time when you load the page.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

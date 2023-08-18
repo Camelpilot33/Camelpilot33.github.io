@@ -60,10 +60,12 @@ select {
     --lnk: #ffdea9;
     --transtime: 250ms;
 }*/
-:root {/*https: //colorhunt.co/palettes/popular*/
+:root {
+    /*https: //colorhunt.co/palettes/popular*/
     --a: #331D2C;
     --a1: #35242f;
     --b: #3F2E3E;
+    --b1: #524351;
     --c: #A78295;
     --d: #EFE1D1;
     --lnk: #ffb163;
@@ -74,21 +76,25 @@ select {
     font-family: CM;
     src: url('Cambria\ Math.ttf');
 }
+
 @font-face {
     font-family: SC;
     src: url('SourceCodePro-Light.ttf');
 }
 
 body {
-    width:100%;
+    width: 100%;
     background-color: var(--a);
     color: var(--d);
     font-family: SC;
     /* letter-spacing: 1px; */
 }
-.content::-webkit-scrollbar {/*hides scrollbar in chromium*/
+
+.content::-webkit-scrollbar {
+    /*hides scrollbar in chromium*/
     display: none;
 }
+
 .content {
     overflow: scroll;
     scrollbar-width: none;
@@ -102,7 +108,7 @@ body {
 .content h1 {
     margin: 10px 60% 10px 10px;
     text-align: center;
-    overflow:visible;
+    overflow: visible;
     white-space: nowrap;
 }
 
@@ -114,7 +120,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(100px, auto);
     overflow-wrap: break-word;
-    column-gap: max(2%,15px);
+    column-gap: max(2%, 15px);
     row-gap: 20px;
 }
 
@@ -148,11 +154,11 @@ body {
 }
 
 .center {
-    display:block;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    
+
 }
 
 .wrapper div img {
@@ -161,14 +167,59 @@ body {
     border: 3px solid #0000;
 }
 
+
+/*Code*/
+pre.code {
+    background-color: var(--b1);
+    /* filter: invert(0.2); */
+    border-radius: 6px;
+    white-space: nowrap;
+    padding: 16px;
+    display: block;
+    color: #0F0;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+}
+pre samp {
+    color: #cfcfcf;
+    font-weight: bold;
+}
+.pl-c {
+    color: #8d8d8d
+}
+.pl-k {
+    color: #ff5d52
+}
+.pl-s1 {
+    color: #fff
+}
+.pl-c1 {
+    color: #62b6ff
+}
+.pl-en {
+    color: #d2a8ff
+}
+.pl-v {
+    color: #ffa556
+}
+.pl-smi {
+    color: #ffa556
+}
+.pl-kos {
+    color:#fff
+}
+
 code {
-    background-color: var(--b);
-    filter: invert(0.2);
+    background-color: var(--b1);
+    /* filter: invert(0.2); */
+    color:var(--d);
     border-radius: 3px;
     font-family: consolas, monospace;
     font-weight: 100;
     padding: 0 3px;
 }
+
 
 .wrapper div hr {
     height: 0px;
@@ -177,7 +228,7 @@ code {
 }
 
 e {
-    height:100%
+    height: 100%
 }
 
 /*TeX*/
@@ -185,11 +236,13 @@ mjx-container[jax="SVG"] svg a {
     fill: var(--lnk) !important;
     stroke: var(--lnk) !important;
 }
+
 text {
     fill: var(--lnk) !important;
 }
+
 .tikz {
     display: flex;
     justify-content: center;
-    margin-top:20px;
+    margin-top: 20px;
 }

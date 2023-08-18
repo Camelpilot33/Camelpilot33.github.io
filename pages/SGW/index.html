@@ -1,0 +1,51 @@
+<script>
+    let [offset, multiplier] = [Math.random()*360,1.3]
+    let [w, h] = [window.innerWidth, window.innerHeight];
+    document.write(`<canvas id="display"width="${w}"height="${h}"></canvas>`);
+    document.getElementsByTagName("body")[0].style.margin = "0px";
+    var ctx = document.getElementById("display").getContext("2d");
+    function set(x, y, i) {
+        ctx.fillStyle = "hsl(" + ((i[0]+offset)*multiplier) + ",100%,55%)";
+        /* if (i[1]<100) ctx.fillStyle = "#000" */
+        ctx.fillRect(x, y, 1, 1);
+    }
+
+    let pts = [];
+
+    for (let i = 0; i < 100; i++) {
+        pts.push([Math.random() * w, Math.random() * h]);
+    }
+
+    function f(i, j) {
+        let idx = 0;
+        let prev = Infinity;
+        let prev1 = Infinity;
+        for (let k in pts) {
+            let a = (pts[k][0] - i) ** 2 + (pts[k][1] - j) ** 2;
+            if (a < prev) {
+                idx = Number(k);
+                prev1 = prev;
+                prev = a;
+            }
+        }
+        return [idx, prev1 - prev];
+    }
+    let i = 0;
+
+    function g() {
+        if (i >= w) {
+            clearInterval(a);
+            return 0;
+        }
+        for (j = 0; j < h; j++) {
+            set(i, j, f(i, j));
+        }
+        i++;
+        for (j = 0; j < h; j++) {
+            set(i, j, f(i, j));
+        }
+        i++;
+    }
+    let a = setInterval(g, 0)
+
+</script>

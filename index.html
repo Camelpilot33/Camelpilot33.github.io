@@ -73,7 +73,24 @@
                     Derivation of the volume of an n-dimensional ball
                 </p>
             </div>
-            <div>3d</div>
+            <div onclick="window.location.href='pages/3d'">
+                <h3>3D renderer</h3>
+                <p>
+                    3d raytracer build from scratch
+                </p>
+            </div>
+            <div onclick="window.location.href='pages/NN'">
+                <h3>NeuroEvo</h3>
+                <p>
+                    A simple Javascript evolutionary algorithm for training neural networks.    
+                </p>
+            </div>
+            <div onclick="window.location.href='pages/SGW'">
+                <h3>Stained Glass Window</h3>
+                <p>
+                    Generates a Voronoi diagram looking like a stained glass window.
+                </p>
+            </div>
             <div>More To be added</div>
         </div>
         <script>f=()=>{ x = Math.ceil(0.00000147 * window.innerWidth ** (2.119) + 0.641235); document.getElementById("grid").style.gridTemplateColumns = `repeat(${x > 5 ? 5 : x},1fr)`; };f();window.onresize = f</script>
