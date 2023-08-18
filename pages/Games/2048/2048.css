@@ -1,0 +1,14 @@
+td {
+    background-color: #eee;
+    outline: 0px solid #c0c0c0;
+    padding: 0px solid black;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 30%;
+}
+
+table#table {
+    border-radius: 10%;
+    background-color: var(--a);
+    padding: 3px;
+}

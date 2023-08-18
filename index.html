@@ -16,10 +16,10 @@
 
 <body>
     <div class="topnav">
-        <a class="activenav" href="">Home</a>
-        <a href="#e">Projects</a>
-        <a href="#e">Games</a>
-        <a href="#e">Other</a>
+        <a class="activenav" href="#">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#games">Games</a>
+        <a href="#other">Other</a>
 
         <div class="right">
             <a onclick="history.back()">←</a>
@@ -32,7 +32,7 @@
             </a>
         </div>
     </div>
-
+    <br>
     <div class="content">
         <h1>Featured</h1>
         <div class="wrapper" id="grid">
@@ -85,17 +85,40 @@
                     A simple Javascript evolutionary algorithm for training neural networks.    
                 </p>
             </div>
+        </div>
+
+
+        <h1 id="projects">Projects</h1>
+        <div class="wrapper">
             <div onclick="window.location.href='pages/SGW'">
                 <h3>Stained Glass Window</h3>
                 <p>
                     Generates a Voronoi diagram looking like a stained glass window.
                 </p>
             </div>
+            <div onclick="window.location.href=`https:/\/camelpilot33.github.io/Camul-Home-Page/projects/math/`">
+                <h3>Calculator</h3>
+                <p>
+                    Basic Computer Algebra System (CAS).
+                </p>
+            </div>
+        </div>
+
+
+        <h1 id="games">Games</h1>
+        <div class="wrapper">
+            <div onclick="window.location.href='pages/games/2048'">
+                <h3>2048</h3>
+                <p>
+                    Copy of 2048
+                </p>
+            </div>
             <div>More To be added</div>
         </div>
+
         <script>f=()=>{ x = Math.ceil(0.00000147 * window.innerWidth ** (2.119) + 0.641235); document.getElementById("grid").style.gridTemplateColumns = `repeat(${x > 5 ? 5 : x},1fr)`; };f();window.onresize = f</script>
     </div>
-
+    <br><br>
 </body>
 
 </html>

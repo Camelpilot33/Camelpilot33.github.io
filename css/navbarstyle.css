@@ -2,6 +2,10 @@
     overflow: hidden;
     background-color: var(--b);
     font-weight:bolder;
+    position: fixed;
+    top:0;
+    width:100%;
+    box-shadow: 0px 0px 5px 5px var(--a);
 }
 
 .topnav a {

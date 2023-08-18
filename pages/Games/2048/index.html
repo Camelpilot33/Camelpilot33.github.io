@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../../img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Samuel Sastry">
+    <title>2048</title>
+    <!-- CSS -->
+    <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/navbarstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/subpage.css" rel="stylesheet" type="text/css" />
+    <link href="2048.css" rel="stylesheet" type="text/css" />
+    <!-- JS -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async src="../../../js/mjaxconfig.js"></script>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="activenav" href="../../../">Home</a>
+        <a href="../../../#projects">Projects</a>
+        <a href="../../../#games">Games</a>
+        <a href="../../../#other">Other</a>
+        <div class="right">
+            <a onclick="history.back()">←</a>
+            <a href="https://discord.com/users/701829178592591952D"><img height="25.5px" style="vertical-align: middle"
+                    src="../../../img/discord.svg"></a>
+            <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
+                <img height="25.5px" style="vertical-align: middle" src="../../../img/gmail.svg">
+            </a>
+            <a href="https://github.com/Camelpilot33" target="_blank" rel="noopener noreferrer">
+                <img height="25.5px" style="vertical-align: middle" src="../../../img/github-mark-white.png"></img>
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="content">
+        <h1>2048</h1>
+        <div class="page-text">
+            <center>
+                <b id="score">Score: 0</b>
+                <div id="table-border">
+                    <table id="table" CELLSPACING=3>
+            
+                    </table>
+                </div>
+            </center>
+                <script src="2048.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
