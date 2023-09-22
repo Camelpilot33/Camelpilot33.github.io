@@ -182,39 +182,48 @@ pre.code {
     font-size: 85%;
     line-height: 1.45;
 }
+
 pre samp {
     color: #cfcfcf;
     font-weight: bold;
 }
+
 .pl-c {
     color: #8d8d8d
 }
+
 .pl-k {
     color: #ff5d52
 }
+
 .pl-s1 {
     color: #fff
 }
+
 .pl-c1 {
     color: #62b6ff
 }
+
 .pl-en {
     color: #d2a8ff
 }
+
 .pl-v {
     color: #ffa556
 }
+
 .pl-smi {
     color: #ffa556
 }
+
 .pl-kos {
-    color:#fff
+    color: #fff
 }
 
 code {
     background-color: var(--b1);
     /* filter: invert(0.2); */
-    color:var(--d);
+    color: var(--d);
     border-radius: 3px;
     font-family: consolas, monospace;
     font-weight: 100;
@@ -246,4 +255,24 @@ text {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+/*Scroll*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--a1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--b);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--b1);
 }

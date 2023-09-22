@@ -3,6 +3,7 @@
     background-color: var(--b);
     font-weight:bolder;
     position: fixed;
+    z-index: 1;
     top:0;
     width:100%;
     box-shadow: 0px 0px 5px 5px var(--a);
@@ -17,7 +18,7 @@
     text-decoration: none;
     font-size: 17px;
     transition-duration: var(--transtime);
-    transition-property: background-color color;
+    transition-property: background-color, color;
 }
 
 .topnav div.right{
@@ -28,15 +29,20 @@
 .topnav div.right a:hover img {
     filter: invert(1);
     transition-duration: var(--transtime);
-    transition-property: background-color color;
-}
-
-.topnav a:hover {
-    background-color: var(--d);
-    color: var(--a);
+    transition-property: background-color, color;
 }
 
 .topnav a.activenav {
     background-color: var(--d);
     color: var(--a);
+}
+
+.topnav:hover>a.activenav {
+    background-color: var(--b);
+    color: var(--e);
+}
+
+.topnav a:hover {
+    background-color: var(--d) !important;
+    color: var(--a) !important;
 }
