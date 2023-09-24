@@ -23,12 +23,13 @@
         <a href="../../#projects">Projects</a>
         <a href="../../#games">Games</a>
         <a href="../../#other">Other</a>
-    
+
         <div class="right">
             <a onclick="history.back()">←</a>
             <a href="https://discord.com/users/701829178592591952D"><img height="25.5px" style="vertical-align: middle"
                     src="../../img/discord.svg"></a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
+            <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
                 <img height="25.5px" style="vertical-align: middle" src="../../img/gmail.svg">
             </a>
             <a href="https://github.com/Camelpilot33" target="_blank" rel="noopener noreferrer">
@@ -40,22 +41,68 @@
     <div class="content">
         <h1>Advent of Code</h1>
         <div class="page-text">
-            <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> is an annual series of Christmas-themed programming challenges with over 1 million participants.
+            <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> is an annual series of
+            Christmas-themed programming challenges with over 1 million participants.
             For every day in December up to the 25th, a two part challenge is released, proceedingly getting harder.
             The event was founded and is maintained by <a href="http://was.tl/" target="_blank">Eric Wastl</a>.
             <br><br>
-            Every challenge consists of two parts, each with a puzzle, example input, and input. 
+            Every challenge consists of two parts, each with a puzzle, example input, and input.
             The puzzle and example input is the same for everyone, but the input is randomized.
             <br><br>
-            Every day a list of the first 100 people to complete each puzzle is released. 
+            Every day a list of the first 100 people to complete each puzzle is released.
             Higher placing on the list correspond to a higher score.
-            As of writing this, I have only gotten on this list once, <a target="_blank"href="https://adventofcode.com/2022/leaderboard/day/21">#44 for both parts on day 21 2022</a>.
-            I started this in 2020, and got 18/50 complete, then in 2021 I got 34/50, and in 2022 I got 50/50. 
-            Unfortunately, I lost my solutions in 2020, so the repository only contains 12 solutions for 2020, 39 for 2021, and all 50 for 2022.
+            As of writing this, I have only gotten on this list once, <a target="_blank"
+                href="https://adventofcode.com/2022/leaderboard/day/21">#44 for both parts on day 21 2022</a>.
+            I started this in 2020, and got 18/50 complete, then in 2021 I got 34/50, and in 2022 I got 50/50.
+            Unfortunately, I lost my solutions in 2020, so the repository only contains 12 solutions for 2020, 39 for
+            2021, and all 50 for 2022.
             <br></br>
             You can view my solutions <a target="_blank" href="https://github.com/Camelpilot33/AdventOfCode">Here</a>.
+            <br><br>
+            Over the past few years, I have developed a boilerplate to increase my efficiency, here it is as of 2022:
+            <shcode id="txt"></shcode>
+            <script>
+                id = "txt"
+                text = `//Define new Array properties
+Object.defineProperties(Array.prototype, {
+	//takes total sum
+    sum: { value: function () { return this.map(Number).reduce((p, a) => p + a, 0); } },
+    //sorts numerical values
+    sortf: { value: function () { return this.sort((a, b) => a - b); } },
+    //takes total product
+    prod: { value: function () { return this.map(Number).reduce((p, a) => p * a, 1); } },
+    //shifts the array over some amount, wrapping overflow
+    rotate: { value: function (n) { n = n % this.length; while (this.length && n < 0) n += this.length; this.push.apply(this, this.splice(0, n)); return this; } },
+    //returns the top n values of the array
+    firstn: { value: function (n) { return n >= 0 ? this.sort((a, b) => b - a).slice(0, n) : []; } }
+});
+//creates a mathematically correct mod for a Number
+Number.prototype.mod = function (n) { return ((this % n) + n) % n; };
+//applies the union operator to intervals
+const mergeint = intervals => {
+    if (intervals.length < 2) return intervals;
+    intervals.sortf();
+    const result = [];
+    let previous = intervals[0];
+    for (let i = 1; i < intervals.length; i += 1) {
+        if (previous[1] >= intervals[i][0]) previous = [previous[0], Math.max(previous[1], intervals[i][1])];
+        else {
+            result.push(previous);
+            previous = intervals[i];
+        }
+    }
+    result.push(previous);
+    return result;
+};
+//finds the minimum area of a rectangle covering a set of points
+const minAreaRect = (points) => (Math.max(...points.map(e => e[0])) - Math.min(...points.map(e => e[0]))) * (Math.max(...points.map(e => e[1])) - Math.min(...points.map(e => e[1])));
+//alphabet string
+const abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//reads the input file according to my organization method
+const input = require('fs').readFileSync(\`1l\`2rString(__dirname).replace(/\\/g, '/')\`2l/inputs/\`2r__filename.split('\\')[__filename.split('\\').length - 1].split('.')[0]\`2l.txt\`1r, 'utf8').replace(/\r/g, '');`
+                let num = ["NaN", "false", "null", "true", "undefined", "Infinity", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], res = ["await", "break", "case", "catch", "class", "const", "continue", "debugger", "default", "delete", "do", "else", "export", "extends", "finally", "for", "function", "if", "import", "in", "instanceof", "let", "new", "return", "super", "switch", "this", "throw", "try", "typeof", "var", "void", "while", "with", "yield"], op = "!%~^&*-+<>=|:?".split(""), pun = "()[]{},;.".split(""); function color(s) { if (!s) return ""; let n = "", e = ""; for (let t of s.match(/([A-Za-z_]+|"[^"]*"|'[^']*'|(`1l|`2l)[^`]*(`1r|`2r)|.)/g)) "	" == t ? n += "&emsp;".repeat(3) : " " == t ? n += "&nbsp;" : "`" == t[0] ? (console.log(t, 1 == t[1] ? "`" : t[1] + t.slice(3, t.length - 3) + t[t.length - 2] == 1 ? "`" : "}"), n += "<span class='sh-str'>" + (1 == t[1] ? "`" : "}") + t.slice(3, t.length - 3) + (1 == t[t.length - 2] ? "`" : "${") + "</span>") : '"' == t[0] | "'" == t[0] ? n += "<span class='sh-str'>" + t + "</span>" : num.includes(t) ? n += "<span class='sh-num'>" + t + "</span>" : op.includes(t) ? n += "<span class='sh-op'>" + t + "</span>" : res.includes(t) ? n += "<span class='sh-res'>" + t + "</span>" : pun.includes(t) ? n += "<span class='sh-pun'>" + t + "</span>" : t[0] == t[0].toUpperCase() ? n += "<span class='sh-con'>" + t + "</span>" : "." == e ? n += "<span class='sh-att'>" + t + "</span>" : n += "<span class='sh-var'>" + t + "</span>", e = t; return n } function highlight(s) { for (let n in lines = s.split("\n")) [code, comment] = lines[n].split(/\/\/(.*)/), lines[n] = color(code) + (comment ? "<span class='sh-com'>//" + comment + "</span>" : ""); return `<pre class="code">${lines.join("<br>")}</pre>` } document.getElementById(id).innerHTML = highlight(text);
+            </script>
         </div>
-        
     </div>
 </body>
 

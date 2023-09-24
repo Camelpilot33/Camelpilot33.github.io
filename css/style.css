@@ -219,7 +219,15 @@ pre samp {
 .pl-kos {
     color: #fff
 }
-
+.sh-com{color:#6f767d}
+.sh-res{color:#c678dd;/* font-weight:bold */}
+.sh-var{color:#d0d4d9}
+.sh-att{color:#ff7b72}
+.sh-num{color:#79c0ff}
+.sh-op{color:#79c0ff}
+.sh-pun{color:#ffffff}
+.sh-con{color:#ffa657}
+.sh-str{color:#98c379}
 code {
     background-color: var(--b1);
     /* filter: invert(0.2); */
