@@ -94,11 +94,11 @@ let scene = {
         new sphere(new vec(-0.7, -1, 11), 2.1, [0.9, 0.9, 0.9], -1),
         new sphere(new vec(...p), 0.1, [10, 10, 7], -1),
         new sphere(new vec(0, -10000, 0), 9999, [1, 0.5, 0], 100),
-        new sphere(sun, 0.1, [100, 100, 0.9])
+        // new sphere(sun, 2, [100, 100, 0.9])
     ],
     lights: [
         new light("ambient", 0.1),
-        new light("point", 0.5, new vec(...p)),
+        new light("point", 0.7, new vec(...p)),
         new light("directional", 0.5, sun)
     ]
 };
@@ -205,12 +205,15 @@ function draw(a) {
 }
 let t = 0;
 draw(0);
-// setInterval(function(){
-// 	draw(t)
-// 	t++
-// 	scene.lights[1].i=Math.random()
-//     // scene.spheres[0].pos.x++
-// 	// scene.spheres[2].specular++
-// 	// console.log(scene.spheres[2].specular)
-// },1000)
+let interval=setInterval(function(){
+	draw(t)
+	t++
+	// sun.rzy+=0.01
+    // sun.rxy+=0.01
+    // scene.spheres[]
+    // scene.spheres[0].pos.x++
+	scene.spheres[2].pos.z=9.7-Math.sin(t/5)
+    scene.spheres[2].pos.x=1-Math.cos(t/5)
+	// console.log(scene.spheres[2].specular)
+},1000)
 console.info('Terminated without error');

@@ -23,8 +23,10 @@
 
         <div class="right">
             <a onclick="history.back()">←</a>
-            <a href="https://discord.com/users/701829178592591952D"><img height="25.5px" style="vertical-align: middle" src="img/discord.svg"></a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
+            <a href="https://discord.com/users/701829178592591952D"><img height="25.5px" style="vertical-align: middle"
+                    src="img/discord.svg"></a>
+            <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
                 <img height="25.5px" style="vertical-align: middle" src="img/gmail.svg">
             </a>
             <a href="https://github.com/Camelpilot33" target="_blank" rel="noopener noreferrer">
@@ -33,56 +35,41 @@
         </div>
     </div>
     <br>
+
+
     <div class="content">
         <h1>Featured</h1>
         <div class="wrapper" id="grid">
-
-            <div onclick="window.location.href='pages/AOC'">
-                <h3>Advent of Code</h3>
-                <p>
-                    Advent of code solutions<hr>
-                    <img class="center" src="img/AOC.png"></img>
-                </p>
-            </div>
-
-            <div onclick="window.location.href='pages/IK'">
-                <h3>Inverse Kinematics</h3>
-                <p>
-                    My implementation of Forward And Backward Reaching Inverse Kinematics (FABRIK).
-                </p>
-            </div>
-
-            <div
-                onclick="window.location.href='https:/\/github.com/Camelpilot33/Camul-Home-Page/blob/main/toy/codewars/description.md'">
-                <h3>Codewars</h3>
-                <p>
-                    My Codewars solutions<hr>
-                    <img class="center" src="img/CW.png">
-                </p>
-            </div>
-            <div onclick="window.location.href='pages/Atomic'">
-                <h3>Atomic Chess</h3>
-                <p>
-                    Tools for the Atomic Chess variant<hr>
-                    <img class="center" src="img/atomic.png"></img>
-                </p>
-            </div>
             <div onclick="window.location.href='pages/Sphere'">
                 <h3>n-ball</h3>
                 <p>
-                    Derivation of the volume of an n-dimensional ball
+                    Volume of an n-dimensional ball
+                    <hr>
+                    <img class="center" src="img/Sphere.png"></img>
                 </p>
             </div>
-            <div onclick="window.location.href='pages/3d'">
-                <h3>3D renderer</h3>
+            <div onclick="window.location.href='pages/Birotor'">
+                <h3>Birotor</h3>
                 <p>
-                    3d raytracer build from scratch
+                    Model with PID controller
+                    <hr>
+                    <img class="center" src="img/Birotor.png"></img>
                 </p>
             </div>
-            <div onclick="window.location.href='pages/NN'">
-                <h3>NeuroEvo</h3>
+            <div onclick="window.location.href='pages/Rocketsim'">
+                <h3>Rocket Simulator</h3>
                 <p>
-                    A Javascript evolutionary algorithm for training neural networks.    
+                    Rocket game
+                    <hr>
+                    <img class="center" src="img/Rocketsim.png"></img>
+                </p>
+            </div>
+            <div onclick="window.location.href='pages/Sand'">
+                <h3>Sand Simulator</h3>
+                <p>
+                    Draw with sand
+                    <hr>
+                    <img class="center" src="img/Sand.png"></img>
                 </p>
             </div>
         </div>
@@ -90,16 +77,46 @@
 
         <h1 id="projects">Projects</h1>
         <div class="wrapper">
+            <div onclick="window.location.href='pages/3d'">
+                <h3>3D renderer</h3>
+                <p>
+                    3d raytracer build from scratch
+                    <hr>
+                    <img class="center" src="img/3D.png"></img>
+                </p>
+            </div>
+            <div onclick="window.location.href='pages/IK'">
+                <h3>Inverse Kinematics</h3>
+                <p>
+                    My implementation of the FABRIK algorithm
+                    <hr>
+                    <img class="center" src="img/IK.png"></img>
+                </p>
+            </div>
+            <div onclick="window.location.href='pages/NN'">
+                <h3>NeuroEvo</h3>
+                <p>
+                    A Javascript evolutionary algorithm for training neural networks
+                </p>
+            </div>
+            <div onclick="window.location.href='pages/Atomic'">
+                <h3>Atomic Chess</h3>
+                <p>
+                    Tools for the Atomic Chess variant
+                    <hr>
+                    <img class="center" src="img/atomic.png"></img>
+                </p>
+            </div>
             <div onclick="window.location.href='pages/SGW'">
                 <h3>Stained Glass Window</h3>
                 <p>
-                    Generates a Voronoi diagram looking like a stained glass window.
+                    Generates a Voronoi diagram looking like a stained glass window
                 </p>
             </div>
             <div onclick="window.location.href=`https:/\/camelpilot33.github.io/Camul-Home-Page/projects/math/`">
                 <h3>Calculator</h3>
                 <p>
-                    Basic Computer Algebra System (CAS).
+                    Basic Computer Algebra System (CAS)
                 </p>
             </div>
         </div>
@@ -113,10 +130,31 @@
                     Copy of 2048
                 </p>
             </div>
-            <div>More To be added</div>
+            <div><br><b>Coming Soon!</b></div>
         </div>
 
-        <script>f=()=>{ x = Math.ceil(0.00000147 * window.innerWidth ** (2.119) + 0.641235); document.getElementById("grid").style.gridTemplateColumns = `repeat(${x > 5 ? 5 : x},1fr)`; };f();window.onresize = f</script>
+        <script>f = () => { x = Math.ceil(0.00000147 * window.innerWidth ** (2.119) + 0.641235); document.getElementById("grid").style.gridTemplateColumns = `repeat(${x > 5 ? 5 : x},1fr)`; }; f(); window.onresize = f</script>
+
+        <h1 id="other">Other</h1>
+        <div class="wrapper">
+            <div onclick="window.location.href='pages/AOC'">
+                <h3>Advent of Code</h3>
+                <p>
+                    My Advent of code solutions
+                    <hr>
+                    <img class="center" src="img/AOC.png"></img>
+                </p>
+            </div>
+            <div
+                onclick="window.location.href='https:/\/github.com/Camelpilot33/Camul-Home-Page/blob/main/toy/codewars/description.md'">
+                <h3>Codewars</h3>
+                <p>
+                    My Codewars solutions
+                    <hr>
+                    <img class="center" src="img/CW.png">
+                </p>
+            </div>
+        </div>
     </div>
     <br><br>
 </body>

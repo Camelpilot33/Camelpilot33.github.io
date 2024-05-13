@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../../img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Samuel Sastry">
+    <title>Birotor</title>
+    <!-- CSS -->
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/navbarstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/subpage.css" rel="stylesheet" type="text/css" />
+    <!-- JS -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async src="../../js/mjaxconfig.js"></script>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="activenav" href="../../">Home</a>
+        <a href="../../#projects">Projects</a>
+        <a href="../../#games">Games</a>
+        <a href="../../#other">Other</a>
+        <div class="right">
+            <a onclick="history.back()">←</a>
+            <a href="https://discord.com/users/701829178592591952D"><img height="25.5px" style="vertical-align: middle"
+                    src="../../img/discord.svg"></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
+                <img height="25.5px" style="vertical-align: middle" src="../../img/gmail.svg">
+            </a>
+            <a href="https://github.com/Camelpilot33" target="_blank" rel="noopener noreferrer">
+                <img height="25.5px" style="vertical-align: middle" src="../../img/github-mark-white.png"></img>
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="content">
+        <h1>Birotor</h1>
+        <div class="page-text grid">
+            <div>
+                <canvas id="display" width="400" height="400"></canvas>
+                <br>
+                <div class="center">
+                    <label for="assist">PID: </label><input name="assist" type="checkbox" onclick="integral=0" checked><br>
+                    Integral/Predicted: <span id="integral">0</span><br>
+                    <button onclick="integral=0">Reset integral term</button><br>
+                    <label for="precalc">Set integral to predicted: </label><input type="checkbox" name="precalc" checked>
+                </div>
+                <script src="birotor.js"></script>
+            </div>
+            <div>
+                <p>This is a 2D simulation of a <a target="_blank" href="https://en.wikipedia.org/wiki/Quadcopter">Quadrotor</a> simplified down to two rotors. It is controlled by a <a target="_blank" href="https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller">PID (Proportional-Integral-Derivative) controller</a>. The quadrotor has two inputs, the two rotors' thrusts, and can fully measure its state. The PID controller uses the error between the target position and the current position to adjust the rotors' thrusts. The integral term is used to correct for steady-state error, and the derivative term is used to dampen oscillations.
+                </p>
+                <hr>
+                <p>Controls:
+                    <ul>
+                        <li>A/D: Power left/right rotor</li>
+                        <li>S: Give equal power to both</li>
+                        <li>W: Enable PID assistance</li>
+                        <li>E: Enable integral prediction</li>
+                        <li>1&ndash;9: Adjust power</li>
+                        <li>Arrow Keys/Mouse: Move target</li>
+                        <li>Space: Reset simulation</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

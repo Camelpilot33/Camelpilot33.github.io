@@ -50,8 +50,8 @@ select {
     font: inherit;
 }
 
-/*Camul colors
-:root {
+/* Camul colors */
+/* :root {
     --a: #000000;
     --a1: #282A3A;
     --b: #282A3A;
@@ -59,10 +59,10 @@ select {
     --d: #d9ae69;
     --lnk: #ffdea9;
     --transtime: 250ms;
-}*/
-:root {
-    /*https: //colorhunt.co/palettes/popular*/
-    --a: #331D2C;
+} */
+/* :root {
+    /*https: //colorhunt.co/palettes/popular*\/
+    --a: #281722;
     --a1: #35242f;
     --b: #3F2E3E;
     --b1: #524351;
@@ -70,7 +70,19 @@ select {
     --d: #EFE1D1;
     --lnk: #ffb163;
     --transtime: 250ms;
+} */
+:root {
+    --a: #FEFAF6;
+    --a1: #efe9d9;
+    --b: #EADBC8;
+    --b1: #091a33;
+    --c: #DAC0A3;
+    --d: #102c57;
+    --lnk: #2568cc;
+    --transtime: 250ms;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 @font-face {
     font-family: CM;
@@ -79,7 +91,7 @@ select {
 
 @font-face {
     font-family: SC;
-    src: url('SourceCodePro-Light.ttf');
+    src: url('SourceCodePro-VariableFont_wght.ttf');
 }
 
 body {
@@ -107,6 +119,8 @@ body {
 }
 
 .content h1 {
+    font-weight: 900;
+    font-size: 2.2em;
     margin: 10px 60% 10px 10px;
     text-align: center;
     overflow: visible;
@@ -114,34 +128,49 @@ body {
 }
 
 .wrapper {
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding-right: 21px;
+    padding-bottom: 21px;
+    padding-left: 10px;
+    padding-top: 10px;
     overflow: visible !important;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(100px, auto);
     overflow-wrap: break-word;
-    column-gap: max(4%, 30px);
-    row-gap: 40px;
+    column-gap: max(4%, 40px);
+    row-gap: 50px;
 }
 
 .wrapper div {
     background-color: var(--a1);
-    transition-duration: 250ms;
+    transition-duration: var(--transtime);
     transition-property: background-color color;
     border-radius: 5px;
-    /* border: 1px solid #0f0; */
+    /* border: 1px solid var(--d); */
     text-align: center;
     box-shadow: 10px 10px var(--c);
+    box-shadow:
+    7px 7px 0 var(--c),
+    14px 14px 0 var(--d),
+    21px 21px 0 var(--lnk);
     cursor: pointer;
+    /* position: relative; */
 }
 
 .wrapper div:hover {
-    box-shadow: 3px 3px var(--c);
+    /* filter: blur(5px); */
+    box-shadow: 0px 0px 0px 7px var(--lnk);
+}
+.wrapper div:hover~ div {
+    filter: blur(5px);
+    /* box-shadow: 0px 0px 0px 7px var(--lnk); */
+}
+.wrapper div:has(~ div:hover) {
+    filter: blur(5px);
 }
 
 .wrapper div h3 {
-    font-weight: 900;
+    font-weight: 600;
     padding: 10px;
     background-color: var(--d);
     color: var(--a);
@@ -152,6 +181,9 @@ body {
     padding: 5px;
     display: flex;
     justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: oblique;
 }
 
 .center {
@@ -159,15 +191,25 @@ body {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-
 }
 
 .wrapper div img {
-    border-radius: 50%;
-    height: 70px;
+    border-radius: 10%;
+    height: 80px;
+    margin-top:10px;
+    margin-bottom:10px;
     border: 3px solid #0000;
+    /* border:2px solid var(--d); */
 }
 
+button {
+    color: var(--a);
+    border-radius: 5px;
+}
+
+input[type="checkbox" i] {
+    accent-color: var(--d);
+}
 
 /*Code*/
 pre.code {
@@ -219,19 +261,48 @@ pre samp {
 .pl-kos {
     color: #fff
 }
-.sh-com{color:#6f767d}
-.sh-res{color:#c678dd;/* font-weight:bold */}
-.sh-var{color:#d0d4d9}
-.sh-att{color:#ff7b72}
-.sh-num{color:#79c0ff}
-.sh-op{color:#79c0ff}
-.sh-pun{color:#ffffff}
-.sh-con{color:#ffa657}
-.sh-str{color:#98c379}
+
+.sh-com {
+    color: #6f767d
+}
+
+.sh-res {
+    color: #c678dd;
+    /* font-weight:bold */
+}
+
+.sh-var {
+    color: #d0d4d9
+}
+
+.sh-att {
+    color: #ff7b72
+}
+
+.sh-num {
+    color: #79c0ff
+}
+
+.sh-op {
+    color: #79c0ff
+}
+
+.sh-pun {
+    color: #ffffff
+}
+
+.sh-con {
+    color: #ffa657
+}
+
+.sh-str {
+    color: #98c379
+}
+
 code {
     background-color: var(--b1);
     /* filter: invert(0.2); */
-    color: var(--d);
+    color: var(--c);
     border-radius: 3px;
     font-family: consolas, monospace;
     font-weight: 100;

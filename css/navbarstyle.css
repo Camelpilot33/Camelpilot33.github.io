@@ -1,18 +1,18 @@
 .topnav {
     overflow: hidden;
     background-color: var(--b);
-    font-weight:bolder;
+    font-weight: 500;
     position: fixed;
     z-index: 1;
-    top:0;
-    width:100%;
+    top: 0;
+    width: 100%;
     box-shadow: 0px 0px 5px 5px var(--a);
 }
 
 .topnav a {
-    cursor:pointer;
+    cursor: pointer;
     float: left;
-    color:inherit;
+    color: inherit;
     text-align: center;
     padding: 10px 20px;
     text-decoration: none;
@@ -21,13 +21,20 @@
     transition-property: background-color, color;
 }
 
-.topnav div.right{
-    float:right;
+.topnav div.right {
+    float: right;
     color: var(--e);
 }
 
+.topnav img {
+    /* filter:brightness(0) invert(0.5) sepia(1)hue-rotate(90deg); */
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='removeWhite'><feColorMatrix type='matrix' values='0 0 0 0 0.06274509803921569  0 0 0 0 0.17254901960784313  0 0 0 0 0.3411764705882353  1 1 1 1 0'/></filter></svg>#removeWhite");
+    transition-duration: var(--transtime);
+    transition-property: background-color, color, filter;
+}
+
 .topnav div.right a:hover img {
-    filter: invert(1);
+    filter:contrast(1);  
     transition-duration: var(--transtime);
     transition-property: background-color, color;
 }
@@ -38,7 +45,7 @@
 }
 
 .topnav:hover>a.activenav {
-    background-color: var(--b);
+    background-color: #0000;
     color: var(--e);
 }
 

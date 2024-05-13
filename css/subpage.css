@@ -7,23 +7,32 @@
 
 .page-text a {
     color: var(--lnk);
-    text-decoration: none;
+    text-decoration:underline dotted;
 }
 
 button {
     background-color: var(--d);
-    font-weight: bold
+    color: var(--a);
+    font-weight: bold;
+}
+button:hover {
+    background-color: var(--d);
+    color: var(--a)
+}
+button:active {
+    background-color: var(--a);
+    color: var(--d);
 }
 
 .grid {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     overflow-wrap: break-word;
     column-gap: 20px;
 }
 
 canvas {
-    border: 3px solid var(--c);
+    border: 3px solid var(--d);
     background-color: var(--a);
 }
 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../../img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Samuel Sastry">
+    <title>Rocket Simulator</title>
+    <!-- CSS -->
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/navbarstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/subpage.css" rel="stylesheet" type="text/css" />
+    <!-- JS -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async src="../../js/mjaxconfig.js"></script>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="activenav" href="../../">Home</a>
+        <a href="../../#projects">Projects</a>
+        <a href="../../#games">Games</a>
+        <a href="../../#other">Other</a>
+        <div class="right">
+            <a onclick="history.back()">←</a>
+            <a href="https://discord.com/users/701829178592591952D"><img height="25.5px" style="vertical-align: middle"
+                    src="../../img/discord.svg"></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anonymouscamul@gmail.com&su=Subject&body=To:%20Samuel">
+                <img height="25.5px" style="vertical-align: middle" src="../../img/gmail.svg">
+            </a>
+            <a href="https://github.com/Camelpilot33" target="_blank" rel="noopener noreferrer">
+                <img height="25.5px" style="vertical-align: middle" src="../../img/github-mark-white.png"></img>
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="content">
+        <h1>Rocket Simulator</h1>
+        <div class="page-text grid">
+            <div>
+                <canvas id="display" width="500" height="500"></canvas>
+                <br>
+                <div class="center" id="data"></div>
+                <script defer src="rocketsim.js"></script>
+            </div>
+            <div>
+                <p>
+                    This is a simple JS rocket game with an emphasis on realistic physics. 
+                </p>
+                <hr>
+                <p>Controls:
+                    <ul>
+                        <li>Collect the shiny orbs using your rocket</li>
+                        <li>Controls are W/S to control thrust, A/D to control thruster angle</li>
+                        <li>You start with 9L of fuel (equivalent to 9kg), gradually decreasing proportionally to the thrust. The unfueled rocket is 1kg. The same thrust will get you a greater amount of acceleration over time</li>
+                        <li>The rocket has two parts: the main body and the thruster. The center of mass is the center of the main body. You can rotate the rocket by performing a burn with a non-zero angle, although it is hard to recover if your rocket tips too far.</li>
+                        <li>If you are having trouble, try to balance the rocket like an inverted pendulum.</li>
+                        <li>You can use the walls to bounce, and land on the ground (only if you are going &lt;10m/s)</li>
+                    </ul>
+                </p>
+                <hr>
+                <p>
+                    Kinematics:
+                    $$\ddot{\theta}=\dfrac{T\,l\tan(\phi)}{I}$$
+                    $$\ddot{x}=-\frac{TI}M\sin(\theta+\phi)$$
+                    $$\ddot{y}=g-\frac{TI}M\cos(\theta+\phi)$$
+                </p>
+            </div>
+            <!-- <div >
+                <p>
+                    hellow 
+                </p>
+            </div> -->
+        </div>
+    </div>
+</body>
+
+</html>
