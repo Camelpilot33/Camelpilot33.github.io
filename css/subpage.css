@@ -6,8 +6,30 @@
 }
 
 .page-text a {
+    position:relative;
     color: var(--lnk);
-    text-decoration:underline dotted;
+    text-decoration: underline dotted;
+}
+
+.page-text a::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 0 0 0 0;
+    background: var(--lnk);
+    filter: opacity(0.5);
+    transition: transform .3s ease;
+}
+
+.page-text a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 button {
@@ -15,10 +37,12 @@ button {
     color: var(--a);
     font-weight: bold;
 }
+
 button:hover {
     background-color: var(--d);
     color: var(--a)
 }
+
 button:active {
     background-color: var(--a);
     color: var(--d);
@@ -39,7 +63,7 @@ canvas {
 .slider {
     vertical-align: middle;
     appearance: none;
-    width:100px;
+    width: 100px;
     height: 20px;
     border-radius: 10px;
     background: var(--a);
@@ -61,10 +85,13 @@ canvas {
     background: var(--d);
     cursor: pointer;
 }
+
 label.small {
-    font-size:medium;
-    font-weight:bolder;
+    font-size: medium;
+    font-weight: bolder;
 }
-h3,h4 {
+
+h3,
+h4 {
     color: var(--lnk)
 }
